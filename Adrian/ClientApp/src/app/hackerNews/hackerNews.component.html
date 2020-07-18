@@ -1,0 +1,25 @@
+<h1>Hacker News</h1>
+
+<p *ngIf="!hackerNews"><em>Loading...</em></p>
+
+Search For: <input #text/>
+Start: <input #offset style="width:50px;" />
+Line Per Page <input #page style="width:50px;" />
+<button (click)="search(text.value, offset.value, page.value)" style="border: none; background-color: lightgrey; margin-left:16px; height:30px;" >Search</button>
+
+<table class='table' *ngIf="hackerNews">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of hackerNews">
+      <td style="width:40px;">{{ item.id }}</td>
+      <td style="width: 300px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: block;">{{ item.title }}</td>
+      <td style="width: 100%; white-space: nowrap;">{{ item.link }}</td>
+    </tr>
+  </tbody>
+</table>
