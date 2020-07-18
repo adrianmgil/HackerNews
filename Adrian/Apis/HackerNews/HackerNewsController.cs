@@ -15,17 +15,15 @@ namespace Adrian.Apis.HackerNews
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<HackerNews> GetHackerNews(string searchFor, int offset = 0, int linePerPage = 0)
+        public IEnumerable<HackerNews> Get(string searchFor, int offset = 0, int linePerPage = 0)
         {
             return repository.Get(searchFor, offset, linePerPage);
         }
 
         [HttpPost("[action]")]
-        public void CreateHackerNews([FromBody]string value)
+        public void Create([FromBody]HackerNews item)
         {
-            string title = "";
-            string link = "";
-            repository.Create(title, link);
+            repository.Create(item.Title, item.Link);
         }
 
         // DELETE api/values/5

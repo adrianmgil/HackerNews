@@ -26,7 +26,7 @@ export class HackerNewsComponent implements OnInit {
     params = params.append('searchFor', searchFor);
     params = params.append('offset', offset.toString());
     params = params.append('linePerPage', page.toString());
-    this.http.get<IHackerNew[]>(this.baseUrl + 'apis/HackerNews/GetHackerNews', { params: params }).subscribe(results => this.hackerNews = results, error => console.error(error));
+    this.http.get<IHackerNew[]>(this.baseUrl + 'apis/HackerNews/Get', { params: params }).subscribe(results => this.hackerNews = results, error => console.error(error));
   }
 }
 
