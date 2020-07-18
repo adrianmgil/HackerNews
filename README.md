@@ -1,8 +1,8 @@
 # HackerNews
 
 Get Hacker News API
-https://localhost:{port}/apis/HackerNews/Get
 
+https://localhost:{port}/apis/HackerNews/Get
 https://localhost:{port}/apis/HackerNews/Get?searchFor={text}&offset={offset}&linePerPage={linePerPage}
 
 
