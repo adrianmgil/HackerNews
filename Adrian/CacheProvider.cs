@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
 
+// It can be very useful with any object type
 namespace Adrian
 {
     public interface ICacheProvider
     {
         T Get<T>(string key);
         void Set<T>(string key, T value);
+        void Remove(String key);
     }
 
     public class CacheProvider : ICacheProvider
@@ -26,6 +28,11 @@ namespace Adrian
         public T Get<T>(string key)
         {
             return cache.Get<T>(key);
+        }
+
+        public void Remove(String key)
+        {
+            cache.Remove(key);
         }
     }
 }

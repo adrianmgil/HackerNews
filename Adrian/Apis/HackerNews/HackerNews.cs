@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Link { get; set; }
+        public string Url { get; set; }
         public string LastUpdateUtc { get; set; }
     }
 }

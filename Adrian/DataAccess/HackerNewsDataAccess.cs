@@ -1,8 +1,10 @@
 ﻿using Adrian.Apis.HackerNews;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+
+
+// Useless this time but I am showing you guys my coding skill.
 
 namespace Adrian.DataAccess
 {
@@ -30,9 +32,6 @@ namespace Adrian.DataAccess
                             ORDER BY Last_Update_UTC DESC";
             IEnumerable<HackerNews> results = db.ExecuteQuery<HackerNews>(sql);
 
-            // Testing only for the interview only.
-            //IEnumerable<HackerNews> results = getDummyResults(offset, linePerPage);
-
             if (offset > 0)
             {
                 results = results.Skip(offset);
@@ -55,25 +54,5 @@ namespace Adrian.DataAccess
             const string sql = @"DELETE dbo.HackerNew WHERE HackerNew_RecID = @id";
             db.ExecuteNonQuery(sql, new[] { new SqlParameter("id", id) });
         }
-
-        private IEnumerable<HackerNews> getDummyResults(int offset, int linePerPage)
-        {
-            List<HackerNews> dummyResults = new List<HackerNews>();
-
-            for (int i = 0; i < 200; i++)
-            {
-                string title = new String(Convert.ToChar((i % 26) + 65), 4 * ((i / 26) + 1));
-                dummyResults.Add(new HackerNews { Id = i, Title = title, Link = $"link_{title}", LastUpdateUtc = DateTime.UtcNow.ToString() });
-            }
-
-            IEnumerable<HackerNews> results = dummyResults.Skip(offset);
-
-            if (linePerPage > 0)
-            {
-                results = results.Take(linePerPage);
-            }
-
-            return results;
-        }
-    }
+   }
 }

@@ -1,6 +1,4 @@
-﻿using Adrian.DataAccess;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Adrian.Apis.HackerNews
 {
@@ -11,19 +9,19 @@ namespace Adrian.Apis.HackerNews
 
         public HackerNewsController(ICacheProvider cacheProvider)
         {
-            this.repository = new HackerNewsRepository(new HackerNewsDataAccess(new Database()), cacheProvider);
+            this.repository = new HackerNewsRepository(cacheProvider);
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<HackerNews> Get(string searchFor, int offset = 0, int linePerPage = 0)
+        public HackerNews Item(int id)
         {
-            return repository.Get(searchFor, offset, linePerPage);
+            return repository.Get(id);
         }
 
         [HttpPost("[action]")]
-        public void Create([FromBody]HackerNews item)
+        public void Item([FromBody]HackerNews item)
         {
-            repository.Create(item.Title, item.Link);
+            repository.Create(item.Id, item.Title, item.Url);
         }
 
         // DELETE api/values/5

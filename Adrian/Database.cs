@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
+// Useless this time but I am showing you guys my coding skill.
+
 namespace Adrian
 {
     public interface IDatabase
