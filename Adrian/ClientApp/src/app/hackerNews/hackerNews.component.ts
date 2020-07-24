@@ -3,7 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-hackerNews',
-  templateUrl: './hackerNews.component.html'
+  templateUrl: './hackerNews.component.html',
+  styleUrls: ['./hackerNews.component.css']
 })
 
 export class HackerNewsComponent implements OnInit {
@@ -26,10 +27,10 @@ export class HackerNewsComponent implements OnInit {
     this.hackerNews = [];
     this.http.get<number[]>(this.hackerNewApiBaseUrl + 'newstories.json?print=pretty').subscribe(
       (itemIds) => {
-        if (offset == null) { offset = 0; }
-        if (page == null) { page = 0; }
+        if (!offset || offset == 0) { offset = 1; }
+        if (!page || page == 0) { page = 50; }
 
-        itemIds.splice(offset, itemIds.length - (page == 0 ? itemIds.length : page));
+        itemIds.splice(offset-1, itemIds.length - page);
 
         for (let itemId of itemIds) {
           this.getNewsInfo(itemId);

@@ -1,0 +1,41 @@
+.header {
+    font-size: 30px;
+    color: royalblue;
+    font-weight: 700;
+}
+
+.toolbar {
+    display: inline-flex;
+}
+
+.toolbar div {
+  margin-left: 10px;
+}
+
+.id {
+  width: 40px;
+}
+
+.title {
+  width: 350px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
+.link {
+  width: 100%;
+  white-space: nowrap;
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.button {
+  border: none;
+  background-color: lightgrey;
+  margin-left: 16px;
+  height: 30px;
+  padding: 0px 16px;
+  border-radius: 4px;
+}
