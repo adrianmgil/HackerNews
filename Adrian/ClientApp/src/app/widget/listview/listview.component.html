@@ -1,0 +1,9 @@
+<h1 class="header">{{title}}</h1>
+
+<p *ngIf="!items"><em>Loading...</em></p>
+
+<div class="toolbar">
+  <div>Start: <input #offset style="width:50px;" value="1" /></div>
+  <div>Line Per Page <input #page style="width:50px;" value="50" /></div>
+  <div><button (click)="search(offset.value, page.value)" class="button">Search</button></div>
+</div>

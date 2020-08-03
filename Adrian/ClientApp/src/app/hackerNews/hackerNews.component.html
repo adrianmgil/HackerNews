@@ -1,6 +1,6 @@
-<h1 class="header">Hacker News</h1>
+<h1 class="header">{{title}}</h1>
 
-<p *ngIf="!hackerNews"><em>Loading...</em></p>
+<p *ngIf="!items"><em>Loading...</em></p>
 
 <div class="toolbar">
   <div>Start: <input #offset style="width:50px;" value="1" /></div>
@@ -8,7 +8,7 @@
   <div><button (click)="search(offset.value, page.value)" class="button">Search</button></div>
 </div>
 
-<table class='table' *ngIf="hackerNews">
+<table class='table' *ngIf="items">
   <thead>
     <tr>
       <th></th>
@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of hackerNews; let i = index">
+    <tr *ngFor="let item of items; let i = index">
       <td class="id">{{ i+1 }} </td>
       <td class="id">{{ item.id }}</td>
       <td class="title">{{ item.title }}</td>

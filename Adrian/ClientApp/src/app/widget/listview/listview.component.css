@@ -1,0 +1,7 @@
+.toolbar {
+  display: inline-flex;
+}
+
+.toolbar div {
+  margin-left: 10px;
+}
